@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menenun Ulos - Bahasa Indonesia 2B</title>
+<style>
+:root{--r:#d7263d;--y:#ffc93c;--g:#2eb872;--b:#2b7de9;--p:#ff6fb1;--ink:#3a2a1a;--card:#fffdf6}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Baloo 2","Comic Sans MS","Trebuchet MS",sans-serif;color:var(--ink);font-size:18px;min-height:100vh;
+background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect width='60' height='60' fill='%23a8172b'/%3E%3Cpath d='M30 4l26 26-26 26L4 30z' fill='%23ffc93c'/%3E%3Cpath d='M30 14l16 16-16 16-16-16z' fill='%232b7de9'/%3E%3Cpath d='M30 23l7 7-7 7-7-7z' fill='%23fff'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23fff'/%3E%3Ccircle cx='60' cy='60' r='5' fill='%23fff'/%3E%3Ccircle cx='60' cy='0' r='5' fill='%232eb872'/%3E%3Ccircle cx='0' cy='60' r='5' fill='%232eb872'/%3E%3C/svg%3E")}
+.wrap{max-width:780px;margin:0 auto;padding:12px 12px 40px}
+.band{height:14px;border-radius:8px;margin:8px 0;background:repeating-linear-gradient(90deg,#ffc93c 0 14px,#d7263d 14px 28px,#fff 28px 36px,#2b7de9 36px 50px)}
+header{text-align:center;background:var(--card);border:5px solid var(--y);border-radius:28px;padding:10px 12px;box-shadow:0 8px 0 #0004}
+header h1{margin:0;font-size:1.5em;color:var(--r);text-shadow:2px 2px 0 var(--y)}
+header small{color:var(--b);font-weight:bold}
+.hero{display:flex;justify-content:center;gap:10px;align-items:flex-end}
+.hero svg{width:74px;height:74px;animation:bob 1.6s ease-in-out infinite}.hero svg+svg{animation-delay:.5s}
+@keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}
+.steps{display:flex;gap:6px;margin:12px 0}
+.dot{flex:1;text-align:center;padding:7px 2px;border-radius:16px;background:#fff8;font-size:.72em;font-weight:800;border:3px solid #fff}
+.dot.on{background:var(--y);transform:scale(1.06)}.dot.done{background:var(--g);color:#fff}
+.card{background:var(--card);border:5px solid var(--b);border-radius:28px;padding:16px;box-shadow:0 8px 0 #0004;animation:in .5s}
+@keyframes in{from{opacity:0;transform:translateY(20px) scale(.97)}}
+.hide{display:none!important}
+h2{margin:0 0 8px;color:var(--b)}
+.guide{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.guide svg{width:72px;height:72px;flex:none;animation:bob 2s infinite}
+.bubble{position:relative;background:#fff;border:3px solid var(--y);border-radius:20px;padding:10px 12px;flex:1}
+.bubble:before{content:"";position:absolute;left:-14px;top:24px;border:8px solid transparent;border-right:12px solid var(--y)}
+label{font-weight:800;color:var(--r)}
+input{width:100%;padding:12px 14px;font-size:1em;border:4px solid var(--y);border-radius:16px;margin:4px 0 12px;font-family:inherit;background:#fffbe8}
+input:focus{outline:0;border-color:var(--b)}
+button{font-family:inherit;font-size:1em;font-weight:800;border:0;border-radius:20px;padding:12px 20px;background:var(--g);color:#fff;cursor:pointer;box-shadow:0 5px 0 #1b7a4b;transition:.15s}
+button:hover:not(:disabled){filter:brightness(1.08)}
+button:disabled{background:#c4c4c4;box-shadow:0 5px 0 #8a8a8a;cursor:not-allowed}
+button:active:not(:disabled){transform:translateY(4px);box-shadow:none}
+.big-btn{display:block;width:100%;font-size:1.15em;margin-top:8px}
+.box{background:#fff;border:3px dashed var(--y);border-radius:20px;padding:12px;margin:10px 0}
+.box h3{margin:0 0 6px;color:var(--p)}
+.kw{color:#fff;background:var(--r);border-radius:10px;padding:0 8px;font-weight:800;cursor:pointer;display:inline-block;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.1)}}
+.words{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.w{background:var(--r);box-shadow:0 5px 0 #8f1424;display:flex;align-items:center;gap:8px;justify-content:center}
+.w.seen{background:var(--g);box-shadow:0 5px 0 #1b7a4b}.w svg{width:34px;height:28px}
+.prog{height:16px;background:#eee;border-radius:10px;overflow:hidden;margin:8px 0;border:2px solid var(--y)}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--y),var(--g));transition:.4s}
+.q{background:#fff;border:3px solid var(--y);border-radius:22px;padding:12px;margin:12px 0}
+.q b{display:block;margin-bottom:6px}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;background:#eef5ff;color:var(--ink);border:3px solid var(--b);box-shadow:0 4px 0 #1a4fa0;border-radius:16px}
+.opt.ok{background:#c9f5dc;border-color:var(--g);box-shadow:0 4px 0 #1b7a4b;animation:pop .4s}
+.opt.no{background:#ffd3d8;border-color:var(--r);box-shadow:0 4px 0 #8f1424;animation:shake .4s}
+.opt:disabled:not(.ok):not(.no){opacity:.55}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.fb{margin-top:6px;padding:10px;border-radius:14px;font-weight:700;animation:in .4s}
+.fb.ok{background:#c9f5dc;color:#116b3d;border:2px solid var(--g)}.fb.no{background:#ffd3d8;color:#8f1424;border:2px solid var(--r)}
+.modal{position:fixed;inset:0;background:#000a;display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}
+.pop{background:#fff;border:6px solid var(--y);border-radius:30px;padding:18px;max-width:380px;width:100%;text-align:center;animation:pop .4s}
+@keyframes pop{0%{transform:scale(.3)}70%{transform:scale(1.08)}100%{transform:scale(1)}}
+.pop svg.il{width:170px;height:130px}.pop h2{font-size:1.8em;color:var(--r)}
+.score{font-size:2.6em;color:var(--r);font-weight:800}
+.stars span{font-size:2.6em;display:inline-block;animation:star .7s both}
+@keyframes star{0%{transform:scale(0) rotate(-180deg)}70%{transform:scale(1.4)}100%{transform:scale(1)}}
+.medal{font-size:4em;animation:bob 1.2s infinite}
+.cf{position:fixed;top:-20px;font-size:26px;z-index:30;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.note{font-size:.8em;color:#777;margin:4px 0}
+@media(max-width:480px){body{font-size:16px}.guide svg{width:56px;height:56px}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="cat" viewBox="0 0 100 100"><path d="M18 40L22 8l23 16zM82 40L78 8 55 24z" fill="#f59e3f" stroke="#7a4a1a" stroke-width="3" stroke-linejoin="round"/><path d="M24 30l1-14 12 9zM76 30l-1-14-12 9z" fill="#ffb8c6"/><ellipse cx="50" cy="58" rx="40" ry="34" fill="#f59e3f" stroke="#7a4a1a" stroke-width="3"/><path d="M50 26v12M38 28l3 9M62 28l-3 9" stroke="#c96f1c" stroke-width="4" stroke-linecap="round"/><ellipse cx="34" cy="56" rx="7" ry="9" fill="#fff"/><ellipse cx="66" cy="56" rx="7" ry="9" fill="#fff"/><circle cx="35" cy="58" r="5" fill="#222"/><circle cx="65" cy="58" r="5" fill="#222"/><circle cx="37" cy="55" r="1.8" fill="#fff"/><circle cx="67" cy="55" r="1.8" fill="#fff"/><path d="M46 68h8l-4 5z" fill="#ff7a90"/><path d="M50 73q-6 8-12 3M50 73q6 8 12 3" fill="none" stroke="#7a4a1a" stroke-width="2.5" stroke-linecap="round"/><circle cx="23" cy="68" r="6" fill="#ff9aa9" opacity=".7"/><circle cx="77" cy="68" r="6" fill="#ff9aa9" opacity=".7"/><path d="M6 62h14M6 71l14-3M94 62H80M94 71l-14-3" stroke="#7a4a1a" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="bun" viewBox="0 0 100 100"><ellipse cx="34" cy="22" rx="10" ry="24" fill="#fff" stroke="#8a6a7a" stroke-width="3"/><ellipse cx="66" cy="22" rx="10" ry="24" fill="#fff" stroke="#8a6a7a" stroke-width="3"/><ellipse cx="34" cy="24" rx="4.5" ry="16" fill="#ffb8c6"/><ellipse cx="66" cy="24" rx="4.5" ry="16" fill="#ffb8c6"/><ellipse cx="50" cy="66" rx="36" ry="29" fill="#fff" stroke="#8a6a7a" stroke-width="3"/><circle cx="36" cy="62" r="5.5" fill="#333"/><circle cx="64" cy="62" r="5.5" fill="#333"/><circle cx="38" cy="60" r="1.8" fill="#fff"/><circle cx="66" cy="60" r="1.8" fill="#fff"/><ellipse cx="50" cy="72" rx="5" ry="3.5" fill="#ff7a90"/><path d="M50 75q-6 8-11 3M50 75q6 8 11 3" fill="none" stroke="#8a6a7a" stroke-width="2.5" stroke-linecap="round"/><rect x="46" y="79" width="8" height="8" rx="2" fill="#fff" stroke="#8a6a7a" stroke-width="2"/><circle cx="24" cy="74" r="6" fill="#ff9aa9" opacity=".7"/><circle cx="76" cy="74" r="6" fill="#ff9aa9" opacity=".7"/></symbol>
+</defs></svg>
+<div class="wrap">
+<header><div class="hero"><svg><use href="#cat"/></svg><svg><use href="#bun"/></svg></div>
+<h1>Menenun Ulos</h1><small>Pertemuan 1 • Bahasa Indonesia • Kelas 2B</small></header>
+<div class="band"></div><div class="steps" id="steps"></div>
+
+<section class="card" id="s1"><h2>📌 Langkah 1: Kenalan Dulu, Yuk!</h2>
+<div class="guide"><svg><use href="#cat"/></svg><div class="bubble">Halo! Aku <b>Kiko</b> si kucing. Isi namamu dulu ya, biar kita bisa belajar bersama! 🎀</div></div>
+<label>✏️ Nama Lengkap</label><input id="nama" placeholder="Tulis namamu di sini" autocomplete="off">
+<label>🔢 Nomor Absen</label><input id="absen" type="number" min="1" inputmode="numeric" placeholder="Contoh: 12">
+<button class="big-btn" id="mulai" disabled>Mulai Belajar 🚀</button></section>
+
+<section class="card hide" id="s2"><h2>📌 Langkah 2: Ayo Belajar!</h2>
+<div class="guide"><svg><use href="#bun"/></svg><div class="bubble">Aku <b>Mimi</b> si kelinci. Baca pelan-pelan ya, lalu tekan tombol hijau! 📖</div></div>
+<div class="prog"><i id="pg"></i></div>
+<div class="box" id="m1"><h3>1️⃣ Apa itu Teks Narasi?</h3>Teks narasi adalah teks yang menceritakan <b>urutan peristiwa</b> atau kisah kegiatan keluarga.<br><br><button data-n="1">Sudah kubaca ✅</button></div>
+<div class="box hide" id="m2"><h3>2️⃣ Cerita: Menenun Ulos</h3>Ibu Manda menenun <span class="kw" data-w="ulos">ulos</span> khas Batak. Ibu memilih benang dengan <span class="kw" data-w="corak">corak</span> yang cantik. Manda meniru kegiatan Ibu. Tetapi benang <span class="kw" data-w="tenun">tenunnya</span> menjadi <span class="kw" data-w="kusut">kusut</span>! 😱<p class="note">👆 Klik kata merah untuk melihat gambar &amp; mendengar artinya.</p><button data-n="2">Sudah kubaca ✅</button></div>
+<div class="box hide" id="m3"><h3>3️⃣ Kosakata Baru (menurut KBBI)</h3>Klik keempat kata sampai hijau semua!<div class="words" id="words"></div><p class="note" id="wc">0 dari 4 kata dibuka</p></div>
+<button class="big-btn hide" id="kuis" disabled>Lanjut ke Kuis 🎯</button></section>
+
+<section class="card hide" id="s3"><h2>📌 Langkah 3: Kuis Seru!</h2>
+<div class="guide"><svg><use href="#cat"/></svg><div class="bubble">Pilih jawabanmu. Kalau belum tepat, tidak apa-apa, kita belajar bersama! 💪</div></div>
+<div class="prog"><i id="qp"></i></div><div id="qs"></div>
+<button class="big-btn" id="kirim" disabled>Kirim &amp; Lihat Hasil 🏆</button></section>
+
+<section class="card hide" id="s4" style="text-align:center"><h2>📌 Hasil Belajarmu</h2>
+<div class="medal" id="md"></div><h3 id="hn" style="margin:4px"></h3><div class="score" id="hs"></div>
+<div class="stars" id="st"></div><p id="pesan" style="font-weight:800"></p>
+<div class="guide" style="justify-content:center"><svg><use href="#cat"/></svg><svg><use href="#bun"/></svg></div>
+<div class="fb ok" id="save">⏳ Menyimpan data...</div></section>
+<div class="band"></div></div>
+
+<div class="modal hide" id="modal"><div class="pop"><div id="mi"></div><h2 id="mw"></h2><p id="mt" style="font-size:1.1em"></p><button id="mc">Mengerti 👍</button></div></div>
+
+<script>
+// ====== PENGATURAN GURU: tempel URL Web App Google Apps Script di sini ======
+const SCRIPT_URL = "";
+// =============================================================================
+const wv=()=>{let s="";for(let i=0;i<5;i++)for(let j=0;j<5;j++){const o=(i+j)%2;s+=o?`<rect x="${14+j*18}" y="${10+i*14}" width="16" height="12" rx="3" fill="#d7263d"/>`:`<rect x="${14+j*18}" y="${10+i*14}" width="16" height="12" rx="3" fill="#ffc93c"/>`}return s};
+const F=[...Array(8)].map((_,i)=>`<path d="M${18+i*12} 70v16" stroke="#ffc93c" stroke-width="3" stroke-linecap="round"/>`).join("");
+const V={
+ulos:["<svg class='il' viewBox='0 0 120 90'><rect x='8' y='8' width='104' height='62' fill='#8b1e2d'/><rect x='8' y='18' width='104' height='6' fill='#ffc93c'/><rect x='8' y='54' width='104' height='6' fill='#ffc93c'/><path d='M14 39l10-9 10 9-10 9zM42 39l10-9 10 9-10 9zM70 39l10-9 10 9-10 9zM98 39l6-6v12z' fill='#fff'/>"+F+"</svg>","Ulos","Selendang tenunan khas Batak.","🧣"],
+corak:["<svg class='il' viewBox='0 0 120 90'><rect x='8' y='8' width='104' height='74' rx='10' fill='#2b7de9'/><g fill='#ffc93c'><circle cx='30' cy='30' r='9'/><circle cx='90' cy='60' r='9'/></g><g fill='#ff6fb1'><circle cx='60' cy='30' r='9'/><circle cx='30' cy='60' r='9'/></g><g fill='#2eb872'><circle cx='90' cy='30' r='9'/><circle cx='60' cy='60' r='9'/></g></svg>","Corak","Ragam warna pada warna dasar.","🎨"],
+tenun:["<svg class='il' viewBox='0 0 120 90'>"+wv()+"</svg>","Tenun","Hasil kerajinan berupa bahan kain dari benang.","🧵"],
+kusut:["<svg class='il' viewBox='0 0 120 90'><path d='M15 60C30 5 40 90 55 30S70 85 85 25 100 70 108 40C90 10 20 85 45 50S95 15 60 60 30 20 80 70' fill='none' stroke='#d7263d' stroke-width='5' stroke-linecap='round'/></svg>","Kusut","Kacau atau tidak teratur.","🪢"]};
+const Q=[
+["Jenis teks yang menceritakan tentang urutan peristiwa atau kisah kegiatan dinamakan ...",["Teks Petunjuk","Teks Narasi","Teks Tabel"],1,"Teks narasi adalah teks yang berisi urutan peristiwa atau kisah cerita."],
+["Apa arti kata 'Ulos' berdasarkan Kamus Besar Bahasa Indonesia (KBBI)?",["Kain baju kaos biasa","Selendang tenunan khas Batak","Tali sepatu yang panjang"],1,"Ulos adalah selendang tradisional khas suku Batak."],
+["Ketika benang Manda menjadi tidak teratur dan kacau, kondisi benang tersebut dinamakan ...",["Kusut","Corak","Tenun"],0,"Kata 'kusut' berarti kacau, rumit, atau tidak teratur."],
+["Ke mana kita dapat mencari makna dari kata-kata baru yang belum kita ketahui artinya?",["Buku Mewarnai","Kamus Besar Bahasa Indonesia (KBBI)","Jadwal Pelajaran"],1,"KBBI (Kamus Besar Bahasa Indonesia) adalah acuan utama untuk mencari makna kata."]];
+const $=id=>document.getElementById(id),L="ABC",names=["Kenalan","Belajar","Kuis","Hasil"];
+let AC;function snd(f,d=.15,t="sine",delay=0){try{AC=AC||new AudioContext();const o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.setValueAtTime(.15,AC.currentTime+delay);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+delay+d);o.connect(g);g.connect(AC.destination);o.start(AC.currentTime+delay);o.stop(AC.currentTime+delay+d)}catch(e){}}
+const good=()=>{snd(660,.12,"sine");snd(880,.2,"sine",.12)},bad=()=>snd(180,.3,"triangle"),click=()=>snd(520,.08,"square");
+function confetti(){const c=["🎉","⭐","🎊","✨","💖","🌟"];for(let i=0;i<40;i++){const e=document.createElement("div");e.className="cf";e.textContent=c[i%6];e.style.left=Math.random()*100+"vw";e.style.animationDuration=2+Math.random()*2.5+"s";e.style.animationDelay=Math.random()*.8+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),5500)}}
+function setStep(n){$("steps").innerHTML=names.map((t,i)=>`<div class="dot ${i+1<n?"done":i+1==n?"on":""}">${i+1<n?"✔":i+1}. ${t}</div>`).join("");[1,2,3,4].forEach(i=>$("s"+i).classList.toggle("hide",i!=n));scrollTo({top:0,behavior:"smooth"})}
+setStep(1);
+// Langkah 1
+const chk=()=>$("mulai").disabled=!($("nama").value.trim()&&$("absen").value.trim());
+$("nama").oninput=$("absen").oninput=chk;
+$("mulai").onclick=()=>{click();setStep(2)};
+// Langkah 2
+const seen=new Set();let read=0;
+const prog=()=>$("pg").style.width=((read+seen.size)/6*100)+"%";
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="id-ID";u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
+function show(k){const v=V[k];$("mi").innerHTML=v[0];$("mw").textContent=v[3]+" "+v[1];$("mt").textContent=v[2];$("modal").classList.remove("hide");speak(v[1]+". "+v[2]);snd(700,.15);
+seen.add(k);const b=document.querySelector(`.w[data-w=${k}]`);if(b)b.classList.add("seen");
+$("wc").textContent=seen.size+" dari 4 kata dibuka"+(seen.size==4?" 🎉 Hebat!":"");prog();
+if(seen.size==4)$("kuis").disabled=false}
+$("words").innerHTML=Object.keys(V).map(k=>`<button class="w" data-w="${k}">${V[k][3]} ${V[k][1]}</button>`).join("");
+document.querySelectorAll("[data-w]").forEach(e=>e.onclick=()=>show(e.dataset.w));
+$("mc").onclick=()=>{$("modal").classList.add("hide");try{speechSynthesis.cancel()}catch(e){}};
+document.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>{click();b.disabled=true;read++;prog();const n=+b.dataset.n;$("m"+(n+1)).classList.remove("hide");if(n==2)$("kuis").classList.remove("hide");$("m"+(n+1)).scrollIntoView({behavior:"smooth",block:"center"})});
+$("kuis").onclick=()=>{click();setStep(3)};
+// Langkah 3
+const ans={};
+$("qs").innerHTML=Q.map((q,i)=>`<div class="q"><b>${["1️⃣","2️⃣","3️⃣","4️⃣"][i]} ${q[0]}</b>`+q[1].map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}">${L[j]}. ${o}</button>`).join("")+`<div id="f${i}"></div></div>`).join("");
+document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+const i=+b.dataset.q,j=+b.dataset.o;if(i in ans)return;ans[i]=j;const q=Q[i],ok=j==q[2];
+document.querySelectorAll(`.opt[data-q="${i}"]`).forEach(x=>x.disabled=true);
+b.classList.add(ok?"ok":"no");ok?good():bad();
+$("f"+i).innerHTML=`<div class="fb ${ok?"ok":"no"}">${ok?"✅ BENAR! Hebat sekali! 🎉":"❌ Belum tepat, tidak apa-apa! 💪 Jawaban yang benar: "+L[q[2]]+"."}<br>💡 ${q[3]}</div>`;
+const n=Object.keys(ans).length;$("qp").style.width=n/Q.length*100+"%";$("kirim").disabled=n<Q.length});
+// Langkah 4
+$("kirim").onclick=async()=>{
+const skor=Q.reduce((s,q,i)=>s+(ans[i]==q[2]?1:0),0),nama=$("nama").value.trim(),absen=$("absen").value.trim();
+setStep(4);$("hn").textContent=nama+" (Absen "+absen+")";
+$("hs").textContent=skor+" / "+Q.length+" • Nilai "+skor*100/Q.length;
+$("md").textContent=skor==4?"🏆":skor>=2?"🥈":"🌱";
+$("st").innerHTML=Array.from({length:Math.max(1,skor)},(_,i)=>`<span style="animation-delay:${i*.3}s">⭐</span>`).join("");
+$("pesan").textContent=skor==4?"Luar biasa! Kamu hebat sekali! 🏆":skor>=2?"Bagus! Terus belajar ya! 👍":"Semangat! Ayo belajar lagi, pasti bisa! 💪";
+if(skor>=2){confetti();snd(523,.15);snd(659,.15,"sine",.15);snd(784,.3,"sine",.3)}
+const data={timestamp:new Date().toLocaleString("id-ID",{timeZone:"Asia/Jakarta"}),nama:nama+" (Absen "+absen+")",nilai:skor,maks:Q.length};
+const s=$("save");
+if(!SCRIPT_URL){s.className="fb no";s.textContent="⚠️ Data belum terkirim: URL Apps Script belum diisi oleh guru.";return}
+try{await fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(data)});
+s.className="fb ok";s.textContent="Data hasil kuis kamu sudah berhasil tersimpan! 🎉"}
+catch(e){s.className="fb no";s.textContent="⚠️ Data belum terkirim. Minta bantuan Bapak/Ibu Guru ya."}};
+</script></body></html>
